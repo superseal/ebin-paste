@@ -1,0 +1,20 @@
+{% macro static(name) -%}
+    {{ url_for('static', filename=name) }}
+{%- endmacro %}
+
+<html>
+  <head>
+    <title>Upload - pastenig</title>
+    <link rel="stylesheet" type="text/css" href="{{ static('style.css') }}" />
+    <link rel="icon" type="image/png" href="{{ static('favicon.png') }} " />
+  </head>
+  <body class="highlight">
+      <div class="tag-align linenodiv">
+          Tags: 
+          {% for tag in tags %}
+            <a href="{{ url_for('tag_load', tag=tag) }}">{{ tag }}</a>&nbsp;
+          {% endfor %}
+      </div>
+      {{ paste }}
+  </body>
+</html>

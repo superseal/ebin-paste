@@ -1,0 +1,19 @@
+{% macro static(name) -%}
+  {{ url_for('static', filename=name) }}
+{%- endmacro %}
+
+<html>
+  <head>
+    <title>ebin paste</title>
+    <link rel="icon" type="image/png" href="{{ static('favicon.png') }} " />
+    <link rel="stylesheet" type="text/css" href="{{ static('style.css') }}" />
+  </head>
+  <body class="background">
+    <h1 class="title">Tag: {{ tag_title }}</h1>
+      <ul>
+      {% for (date, title, id, lang) in tagged_pastes %}
+        <li class="paste">{{ date }}: <a href="/{{ id }}">{{ title }}</a> ({{ lang }})</li>
+      {% endfor %}
+      </ul>
+  </body>
+</html>

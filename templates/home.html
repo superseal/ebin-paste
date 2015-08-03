@@ -1,0 +1,88 @@
+{% macro static(name) -%}
+  {{ url_for('static', filename=name) }}
+{%- endmacro %}
+
+<html>
+  <head>
+    <title>ebin paste</title>
+    <link rel="icon" type="image/png" href="{{ static('favicon.png') }} " />
+    <link rel="stylesheet" type="text/css" href="{{ static('style.css') }}" />
+  </head>
+  <body class="background">
+    <!-- Header -->
+    <div id="header" class="login-align">
+    </div>
+
+    <!-- Content -->
+    <div id="content" class="paste-align">
+      <form action="paste" method="POST">
+        <input name="title" placeholder="Title">
+        <textarea class="content" type="text" name="content" cols="80" rows="24"></textarea>
+        <br />
+        <select name="lang">
+            <option value="text" selected="selected">Plain text</option>
+            <option value="c">C</option>
+            <option value="haskell">Haskell</option>
+            <option value="python">Python</option>
+            <option value="scheme">Scheme</option>
+            <option disabled="disabled">----</option>
+            <option value="antlr">ANTLR</option>
+            <option value="awk">Awk</option>
+            <option value="cpp">C++</option>
+            <option value="csharp">C#</option>
+            <option value="clojure">Clojure</option>
+            <option value="coffeescript">CoffeeScript</option>
+            <option value="lisp">Common Lisp</option>
+            <option value="coq">Coq</option>
+            <option value="cython">Cython</option>
+            <option value="d">D</option>
+            <option value="fsharp">F#</option>
+            <option value="java">Java</option>
+            <option value="javascript">JavaScript</option>
+            <option value="lua">Lua</option>
+            <option value="llvm">LLVM</option>
+            <option value="postscript">PostScript</option>
+            <option value="powershell">PowerShell</option>
+            <option value="prolog">Prolog</option>
+            <option value="ruby">Ruby</option>
+            <option value="rust">Rust</option>
+            <option value="scala">Scala</option>
+            <option value="tcl">Tcl</option>
+            <option value="verilog">Verilog</option>
+            <option value="vhdl">VHDL</option>
+            <option disabled="disabled">== Markup ==</option>
+            <option value="bash">Bash</option>
+            <option value="bbcode">BBCode</option>
+            <option value="cmake">CMake</option>
+            <option value="css">CSS</option>
+            <option value="diff">Diff</option>
+            <option value="django">Jinja</option>
+            <option value="html">HTML</option>
+            <option value="http">HTTP</option>
+            <option value="ini">INI</option>
+            <option value="irc">IRC logs</option>
+            <option value="make">Makefile</option>
+            <option value="sql">SQL</option>
+            <option value="tex">TeX</option>
+            <option value="vim">Vim</option>
+            <option value="winbatch">Windows Batch</option>
+            <option value="xml">XML</option>
+        </select>
+        <input name="tags" placeholder="Comma-separated tags">
+        <input type="submit" value="Upload">
+      </form>
+    </div>
+
+    <!-- File upload test -->
+    <!--
+    <div id="files">
+      <form action="file-up" enctype="multipart/form-data" method="POST">
+        <input type="file" name="upload">
+        <input type="submit" value="Upload">
+      </form>
+    </div>
+    -- >
+
+  </body>
+</html>
+
